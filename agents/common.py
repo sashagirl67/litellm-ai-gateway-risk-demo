@@ -7,7 +7,6 @@ The environment is deliberately insecure: both agents run as the same IAM identi
 import json
 import os
 import sys
-import time
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -83,59 +82,35 @@ def truncate(text):
     return text[:MAX_TOOL_OUTPUT] + f"\n...[truncated {len(text) - MAX_TOOL_OUTPUT} characters]"
 
 
-# ---------------------------------------------------------------- LLM loop
-def chat(agent_name, vkey, model, system_prompt, user_prompt, tools, tool_impls, max_steps=6, extra_body=None, verbose=True):
-    """Run a tool-calling loop through the LiteLLM gateway. Returns a result dict."""
-    from openai import OpenAI
+# ---------------------------------------------------------------- tool-call recording
+class ToolTrace:
+    """Records every tool call an agent makes during one question, for printing and test evidence."""
 
-    client = OpenAI(base_url=LITELLM_URL, api_key=vkey, max_retries=0, timeout=120)
-    messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
-    trace = {"agent": agent_name, "alias": model, "tool_calls": [], "routing": []}
-    started = time.time()
-    for _ in range(max_steps):
-        raw = client.chat.completions.with_raw_response.create(
-            model=model, messages=messages, tools=tools, temperature=0, extra_body=extra_body or {})
-        resp = raw.parse()
-        h = raw.headers
-        trace["routing"].append({
-            "response_model": resp.model,
-            "deployment_model": h.get("x-litellm-model-name"),
-            "model_group": h.get("x-litellm-model-group"),
-            "model_api_base": h.get("x-litellm-model-api-base"),
-            "attempted_fallbacks": h.get("x-litellm-attempted-fallbacks"),
-            "response_cost": h.get("x-litellm-response-cost"),
-        })
-        msg = resp.choices[0].message
-        if not msg.tool_calls:
-            trace["answer"] = msg.content or ""
-            trace["seconds"] = round(time.time() - started, 1)
-            if verbose:
-                print_trace(trace)
-            return trace
-        messages.append({"role": "assistant", "content": msg.content or "",
-                         "tool_calls": [tc.model_dump() for tc in msg.tool_calls]})
-        for tc in msg.tool_calls:
-            try:
-                args = json.loads(tc.function.arguments or "{}")
-            except json.JSONDecodeError:
-                args = {}
-            try:
-                result = tool_impls[tc.function.name](**args)
-            except Exception as e:  # surface access errors to the model and the trace
-                result = f"ERROR: {type(e).__name__}: {e}"
-            trace["tool_calls"].append({"tool": tc.function.name, "args": args, "result_preview": str(result)[:300]})
-            if verbose:
-                print(f"  [tool] {tc.function.name}({json.dumps(args)}) -> {str(result)[:120]!r}")
-            messages.append({"role": "tool", "tool_call_id": tc.id, "content": truncate(str(result))})
-    trace["answer"] = "(stopped: too many tool steps)"
-    trace["seconds"] = round(time.time() - started, 1)
-    if verbose:
-        print_trace(trace)
-    return trace
+    def __init__(self, verbose=True):
+        self.calls = []
+        self.verbose = verbose
+
+    def run(self, name, args, fn):
+        try:
+            result = fn(**args)
+        except Exception as e:  # surface access errors to the model and to the evidence
+            result = f"ERROR: {type(e).__name__}: {e}"
+        result = str(result)
+        self.calls.append({"tool": name, "args": args, "result_preview": result[:300]})
+        if self.verbose:
+            print(f"  [tool] {name}({json.dumps(args)}) -> {result[:120]!r}")
+        return truncate(result)
 
 
-def print_trace(trace):
-    last = trace["routing"][-1] if trace["routing"] else {}
-    print(f"\n[{trace['agent']} | alias={trace['alias']} | "
-          f"served by={last.get('deployment_model') or last.get('response_model')} | fallbacks={last.get('attempted_fallbacks')}]")
-    print(trace["answer"])
+def text_of(content):
+    """Model message content can be a string or a list of content blocks; return plain text."""
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        return "".join(b.get("text", "") if isinstance(b, dict) else str(b) for b in content)
+    return str(content or "")
+
+
+def print_answer(agent_name, framework, alias, answer):
+    print(f"\n[{agent_name} | framework={framework} | alias={alias}]")
+    print(answer)

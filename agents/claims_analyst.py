@@ -1,8 +1,12 @@
-"""Claims Analyst agent: answers internal staff questions about claims and denials.
+"""Claims Analyst agent, built with LangChain on LangGraph (langchain.agents.create_agent).
 
-Data: the claims, denials, providers and patients CSVs under phi/, queried in place on S3
-with DuckDB (no database server), plus the policy documents under policies/.
-Model alias: smart (Nova 2 Lite, falls back to Nova Pro) via the LiteLLM gateway.
+Answers internal staff questions about claims and denials.
+
+  Framework : LangChain 1.x create_agent (a LangGraph agent graph) + langchain_core @tool
+  Model     : alias "smart" on the LiteLLM gateway (SMART_MODEL in .env, default Amazon Nova 2 Lite,
+              falling back to FALLBACK_MODEL), called through ChatOpenAI with the claims virtual key
+  Tools     : query_claims (DuckDB SQL over the CSVs in S3 under phi/), read_document, list_policies
+  Data      : phi/claims.csv, phi/denials.csv, phi/providers.csv, phi/patients.csv, policies/*.md
 
 Usage:
   python agents/claims_analyst.py "What are the top 5 denial reasons by denied amount?"
@@ -11,9 +15,16 @@ Usage:
 import re
 import sys
 
-from common import BUCKET, DATA_SOURCE, REGION, ROOT, agent_credentials, chat, env, get_text, list_keys
+from langchain.agents import create_agent
+from langchain_core.tools import tool
+from langchain_openai import ChatOpenAI
 
-AGENT = "claims"
+from common import (BUCKET, DATA_SOURCE, LITELLM_URL, REGION, ROOT, ToolTrace, agent_credentials, env,
+                    get_text, list_keys, print_answer, text_of)
+
+AGENT_NAME = "claims_analyst"
+FRAMEWORK = "langchain-langgraph"
+AGENT = "claims"   # identity selector for S3 access (see common.agent_credentials)
 MODEL = "smart"
 
 TABLES = {
@@ -36,21 +47,6 @@ claims operations team. Use query_claims to run DuckDB SQL over these tables:
 Denial reasons use CARC codes (CO-197 authorization absent, CO-50 not medically necessary,
 CO-29 timely filing). Use read_document on policies/ to explain policy rules. Amounts are USD.
 Only return the minimum patient detail needed to answer."""
-
-TOOLS = [
-    {"type": "function", "function": {
-        "name": "query_claims",
-        "description": "Run a read-only DuckDB SQL SELECT over the claims, denials, providers and patients tables.",
-        "parameters": {"type": "object", "properties": {"sql": {"type": "string"}}, "required": ["sql"]}}},
-    {"type": "function", "function": {
-        "name": "read_document",
-        "description": "Read a payer policy document, for example 'policies/appeals.md'. List them with list_policies.",
-        "parameters": {"type": "object", "properties": {"key": {"type": "string"}}, "required": ["key"]}}},
-    {"type": "function", "function": {
-        "name": "list_policies",
-        "description": "List the payer policy documents.",
-        "parameters": {"type": "object", "properties": {}}}},
-]
 
 _con = None
 
@@ -100,20 +96,46 @@ def list_policies():
     return "\n".join(list_keys(AGENT, "policies/"))
 
 
-TOOL_IMPLS = {"query_claims": query_claims, "read_document": read_document, "list_policies": list_policies}
+# ---------------------------------------------------------------- LangChain / LangGraph agent
+def build_agent(trace: ToolTrace):
+    @tool("query_claims")
+    def query_claims_tool(sql: str) -> str:
+        """Run a read-only DuckDB SQL SELECT over the claims, denials, providers and patients tables."""
+        return trace.run("query_claims", {"sql": sql}, query_claims)
+
+    @tool("read_document")
+    def read_document_tool(key: str) -> str:
+        """Read a payer policy document, for example 'policies/appeals.md'. List them with list_policies."""
+        return trace.run("read_document", {"key": key}, read_document)
+
+    @tool("list_policies")
+    def list_policies_tool() -> str:
+        """List the payer policy documents."""
+        return trace.run("list_policies", {}, list_policies)
+
+    llm = ChatOpenAI(model=MODEL, base_url=LITELLM_URL, api_key=env("CLAIMS_VKEY"),
+                     temperature=0, max_retries=0, timeout=120)
+    return create_agent(model=llm, tools=[query_claims_tool, read_document_tool, list_policies_tool],
+                        system_prompt=SYSTEM_PROMPT, name="claims_analyst")
 
 
-def ask(question, verbose=True, extra_body=None, model=MODEL):
-    vkey = env("CLAIMS_VKEY")
-    return chat("claims_analyst", vkey, model, SYSTEM_PROMPT, question, TOOLS, TOOL_IMPLS,
-                verbose=verbose, extra_body=extra_body)
+def ask(question, verbose=True):
+    """Ask one question; returns {"answer", "tool_calls", ...} (used by the tests)."""
+    trace = ToolTrace(verbose=verbose)
+    state = build_agent(trace).invoke({"messages": [{"role": "user", "content": question}]},
+                                      {"recursion_limit": 20})
+    answer = text_of(state["messages"][-1].content).strip()
+    if verbose:
+        print_answer(AGENT_NAME, FRAMEWORK, MODEL, answer)
+    return {"agent": AGENT_NAME, "framework": FRAMEWORK, "alias": MODEL,
+            "answer": answer, "tool_calls": trace.calls, "routing": []}
 
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         ask(" ".join(sys.argv[1:]))
     else:
-        print("Claims Analyst agent. Type a question, or 'quit'.")
+        print("Claims Analyst agent (LangChain/LangGraph). Type a question, or 'quit'.")
         while True:
             q = input("\n> ").strip()
             if q.lower() in {"quit", "exit", ""}:

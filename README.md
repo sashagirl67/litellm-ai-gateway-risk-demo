@@ -31,17 +31,30 @@ Each person runs it in **their own AWS account** and chooses **their own models*
 
 ![Identity chain and blast radius](docs/identity-chain-blast-radius.png)
 
+## The agents
+
+Both agents are built with LangChain's `create_agent`, which builds a LangGraph agent graph, so discovery tools have a widely used framework to detect:
+
+| | Member Help | Claims Analyst |
+|---|---|---|
+| Framework | LangChain `create_agent` on LangGraph (`langchain_core` `@tool`) | LangChain `create_agent` on LangGraph (`langchain_core` `@tool`) |
+| Model client | `ChatOpenAI` pointed at the LiteLLM gateway | `ChatOpenAI` pointed at the LiteLLM gateway |
+| Gateway alias / key | `fast` / `MEMBER_VKEY` | `smart` (falls back to `smart-fallback`) / `CLAIMS_VKEY` |
+| Tools | `list_documents`, `read_document` | `query_claims`, `read_document`, `list_policies` |
+| Data | S3 `policies/` (but can reach `phi/`, TB-1) | S3 `phi/*.csv` via DuckDB, S3 `policies/` |
+| AWS identity | `agent-runtime` (shared, ID-1) | `agent-runtime` (shared, ID-1) |
+
 ## What's inside
 
 | Path | What it is |
 |---|---|
-| `agents/member_help.py` | **Member Help**: answers members' policy questions; alias `fast` |
-| `agents/claims_analyst.py` | **Claims Analyst**: DuckDB SQL over the claims CSVs in S3 plus the policies; alias `smart` |
+| `agents/member_help.py` | **Member Help** (LangChain/LangGraph): answers members' policy questions; alias `fast` |
+| `agents/claims_analyst.py` | **Claims Analyst** (LangChain `create_agent` on LangGraph): DuckDB SQL over the claims CSVs in S3 plus the policies; alias `smart` |
 | `litellm/config.yaml` | Gateway routing; model IDs come from `.env` |
 | `docker-compose.yml` | LiteLLM (pinned `v1.110.3`) + Postgres 16, bound to localhost |
 | `iam/` | The two over-privileged IAM policies |
 | `data/`, `policies/` | Synthetic data (200 patients, 50 providers, 1,000 claims, 213 denials) and four payer policies |
-| `attacks/` | The poisoned policy document used by TB-2 (harmless canary `ZEBRA-42`) |
+| `attacks/` | The poisoned policy section TB-2 inserts into the prior-authorization policy (harmless canary `ZEBRA-42`) |
 | `scripts/` | Setup, model checks, virtual keys, teardown, pre-publish secret check |
 | `tests/run_tests.py` | Demonstrates each weakness and writes evidence to `evidence/` |
 
@@ -78,7 +91,7 @@ python scripts/aws_setup.py --budget-email you@example.com
 # add --profile <name> if your admin credentials are in a named profile
 ```
 
-This does the following, and is safe to run:
+This does the following, and is safe to re-run:
 - creates the private, versioned bucket `mvhp-litellm-demo-<account-id>`
 - uploads `data/` to `phi/` and `policies/` to `policies/`
 - creates the IAM users `litellm-gateway` and `agent-runtime` with the over-privileged policies
@@ -155,10 +168,10 @@ Each test prints `DEMONSTRATED` when it reproduces the weakness. Evidence goes t
 | DX-1 | Reads `phi/patients.csv` with the Member Help identity |
 | DX-2 | Shows the SQL tool returning SSNs, then asks the Claims Analyst for SSNs |
 | TB-1 | Shows Member Help's tool listing and reading `phi/`, then asks the agent for a member's date of birth |
-| TB-2 | Uploads a poisoned policy, asks about MRI prior authorization, then deletes the poisoned policy again |
+| TB-2 | Tampers with the prior-authorization policy in S3 (a fake "update" plus a hidden instruction), asks about MRI prior authorization, then restores the original from S3 version history |
 | TB-3 | Calls each alias and the fallback drill; records what the agent was told vs. which model served it |
 
-DX-2, TB-1 and TB-2 also ask the model, which isn't deterministic. DX-2 and TB-1 count as demonstrated from the access path alone; whether the model actually disclosed the data is recorded separately. If TB-2 shows `NOT REPRODUCED`, the model didn't open the poisoned document on that run, so run `python tests/run_tests.py --only TB-2` again.
+DX-2, TB-1 and TB-2 also ask the model, which isn't deterministic. DX-2 and TB-1 count as demonstrated from the access path alone; whether the model actually disclosed the data is recorded separately. If TB-2 shows `NOT REPRODUCED`, check whether the agent read the tampered policy; if it did, the model ignored the injected text on all three tries, so run `python tests/run_tests.py --only TB-2` again.
 
 ### 9. Day-to-day
 
@@ -202,7 +215,7 @@ Create the GitHub repository **empty**, without a README, .gitignore or license.
 - **LiteLLM is pinned** to `v1.110.3`. Releases 1.82.7 and 1.82.8 (March 2026) and 1.107.0 (October 2026, including its Docker images) were compromised. Check LiteLLM's security advisories before changing the tag, and never use `latest`.
 - **Python dependencies are pinned** in `requirements.txt`.
 - **The gateway is reachable only from your own machine:** it binds to `127.0.0.1:4000`. Don't change that, because the committed master key has no spend limit.
-- **The poisoning test is harmless:** it uses only the canary string `ZEBRA-42`, and it deletes the poisoned document afterwards.
+- **The poisoning test is harmless:** it uses only the canary string `ZEBRA-42`, and it restores the original policy afterwards (the bucket is versioned).
 - **The Claims Analyst's SQL can't read local files:** DuckDB's local filesystem is disabled after the S3 tables are loaded.
 
 ## Troubleshooting
@@ -216,4 +229,4 @@ Create the GitHub repository **empty**, without a README, .gitignore or license.
 | Gateway never becomes healthy | Run `docker compose logs litellm`, and check that port 4000 is free. |
 | A model change didn't take effect | Run `docker compose up -d` again so the container picks up the new `.env` values. |
 | DuckDB can't load `httpfs` | DuckDB downloads it on first use; allow access to extensions.duckdb.org once. |
-| TB-2 shows `NOT REPRODUCED` | The model didn't open the poisoned file on that run. Re-run with `--only TB-2`. |
+| TB-2 shows `NOT REPRODUCED` | Check the evidence for whether the agent read the tampered policy. Re-run with `--only TB-2`. |
