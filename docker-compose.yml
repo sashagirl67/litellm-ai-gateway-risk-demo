@@ -1,0 +1,49 @@
+# LiteLLM gateway + Postgres.
+# Start: docker compose up -d        Stop: docker compose down
+# Model choices and credentials are read from .env (git-ignored).
+name: mvhp-gateway
+
+services:
+  db:
+    image: postgres:16.4
+    environment:
+      POSTGRES_USER: litellm
+      POSTGRES_PASSWORD: litellm-demo-pw          # WEAKNESS ID-4: hardcoded password
+      POSTGRES_DB: litellm
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U litellm -d litellm"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  litellm:
+    # Pinned on purpose. Never use :latest or main-latest, and never 1.82.7, 1.82.8 or 1.107.0
+    # (compromised releases). Check LiteLLM's security advisories before changing this tag.
+    image: ghcr.io/berriai/litellm:v1.110.3
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:4000:4000"                     # localhost only, never exposed to the network
+    environment:
+      # Models behind each alias (see litellm/config.yaml)
+      FAST_MODEL: ${FAST_MODEL:-bedrock/us.amazon.nova-micro-v1:0}
+      SMART_MODEL: ${SMART_MODEL:-bedrock/us.amazon.nova-2-lite-v1:0}
+      FALLBACK_MODEL: ${FALLBACK_MODEL:-bedrock/us.amazon.nova-pro-v1:0}
+      # Bedrock: the gateway's own IAM identity
+      AWS_ACCESS_KEY_ID: ${LITELLM_GATEWAY_AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${LITELLM_GATEWAY_AWS_SECRET_ACCESS_KEY}
+      AWS_REGION_NAME: ${AWS_REGION:-us-east-1}
+      # Optional: other providers, only needed if you route an alias to them
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      LITELLM_SALT_KEY: ${LITELLM_SALT_KEY}
+      DATABASE_URL: postgresql://litellm:litellm-demo-pw@db:5432/litellm   # WEAKNESS ID-4
+    volumes:
+      - ./litellm/config.yaml:/app/config.yaml:ro
+    command: ["--config", "/app/config.yaml", "--port", "4000"]
+
+volumes:
+  pgdata:

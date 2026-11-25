@@ -1,0 +1,3 @@
+# Keep LF line endings so policy hashes in policies/manifest.json match on Windows too
+* text=auto eol=lf
+*.png binary

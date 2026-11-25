@@ -1,0 +1,214 @@
+denial_id,claim_id,carc_code,denial_reason,denied_amount,denial_date,appeal_status,appeal_deadline
+DEN-0001,CLM-100005,CO-242,Services not provided by network/primary care providers,3612.71,2026-11-01,not appealed,2027-04-30
+DEN-0002,CLM-100025,CO-29,The time limit for filing has expired,2293.55,2026-07-03,not appealed,2026-12-30
+DEN-0003,CLM-100032,CO-50,Not deemed a medical necessity by the payer,43.63,2026-07-21,upheld,2027-01-17
+DEN-0004,CLM-100034,CO-16,Claim lacks information or has submission/billing errors,1721.92,2026-05-17,not appealed,2026-11-13
+DEN-0005,CLM-100037,CO-197,Precertification/authorization/notification absent,1343.84,2026-09-28,not appealed,2027-03-27
+DEN-0006,CLM-100041,CO-50,Not deemed a medical necessity by the payer,1600.82,2026-01-16,not appealed,2026-07-15
+DEN-0007,CLM-100045,CO-197,Precertification/authorization/notification absent,8612.48,2026-06-29,not appealed,2026-12-26
+DEN-0008,CLM-100058,CO-242,Services not provided by network/primary care providers,46.72,2026-04-14,not appealed,2026-10-11
+DEN-0009,CLM-100060,CO-16,Claim lacks information or has submission/billing errors,56.02,2026-02-21,appeal filed,2026-08-20
+DEN-0010,CLM-100067,CO-50,Not deemed a medical necessity by the payer,96.42,2026-08-22,not appealed,2027-02-18
+DEN-0011,CLM-100069,CO-50,Not deemed a medical necessity by the payer,2900.22,2026-08-25,overturned,2027-02-21
+DEN-0012,CLM-100073,CO-197,Precertification/authorization/notification absent,1119.51,2026-08-08,appeal filed,2027-02-04
+DEN-0013,CLM-100079,CO-16,Claim lacks information or has submission/billing errors,1848.24,2026-07-13,not appealed,2027-01-09
+DEN-0014,CLM-100082,CO-50,Not deemed a medical necessity by the payer,71.7,2026-07-13,appeal filed,2027-01-09
+DEN-0015,CLM-100086,CO-50,Not deemed a medical necessity by the payer,1080.59,2026-01-06,overturned,2026-07-05
+DEN-0016,CLM-100099,CO-242,Services not provided by network/primary care providers,87.97,2026-08-30,not appealed,2027-02-26
+DEN-0017,CLM-100105,CO-197,Precertification/authorization/notification absent,1104.63,2026-05-13,appeal filed,2026-11-09
+DEN-0018,CLM-100112,CO-242,Services not provided by network/primary care providers,1640.54,2026-09-08,overturned,2027-03-07
+DEN-0019,CLM-100114,CO-50,Not deemed a medical necessity by the payer,176.53,2026-06-28,overturned,2026-12-25
+DEN-0020,CLM-100119,CO-242,Services not provided by network/primary care providers,81.65,2026-07-07,not appealed,2027-01-03
+DEN-0021,CLM-100120,CO-29,The time limit for filing has expired,34880.09,2026-07-12,overturned,2027-01-08
+DEN-0022,CLM-100121,CO-50,Not deemed a medical necessity by the payer,1413.65,2026-07-31,not appealed,2027-01-27
+DEN-0023,CLM-100124,CO-16,Claim lacks information or has submission/billing errors,169.46,2026-10-02,appeal filed,2027-03-31
+DEN-0024,CLM-100128,CO-197,Precertification/authorization/notification absent,3212.82,2026-10-31,not appealed,2027-04-29
+DEN-0025,CLM-100130,CO-18,Exact duplicate claim/service,1023.46,2026-10-17,overturned,2027-04-15
+DEN-0026,CLM-100143,CO-16,Claim lacks information or has submission/billing errors,8002.48,2026-11-01,not appealed,2027-04-30
+DEN-0027,CLM-100150,CO-197,Precertification/authorization/notification absent,29343.77,2026-10-19,appeal filed,2027-04-17
+DEN-0028,CLM-100155,CO-16,Claim lacks information or has submission/billing errors,907.1,2026-10-06,not appealed,2027-04-04
+DEN-0029,CLM-100161,CO-50,Not deemed a medical necessity by the payer,218.12,2026-11-01,appeal filed,2027-04-30
+DEN-0030,CLM-100165,CO-197,Precertification/authorization/notification absent,1215.45,2026-01-17,overturned,2026-07-16
+DEN-0031,CLM-100166,CO-197,Precertification/authorization/notification absent,1888.87,2026-06-09,not appealed,2026-12-06
+DEN-0032,CLM-100172,CO-197,Precertification/authorization/notification absent,930.32,2026-05-25,not appealed,2026-11-21
+DEN-0033,CLM-100178,CO-197,Precertification/authorization/notification absent,7614.83,2026-03-03,overturned,2026-08-30
+DEN-0034,CLM-100182,CO-197,Precertification/authorization/notification absent,1018.41,2026-08-03,not appealed,2027-01-30
+DEN-0035,CLM-100185,CO-16,Claim lacks information or has submission/billing errors,1640.73,2026-01-23,upheld,2026-07-22
+DEN-0036,CLM-100186,CO-97,Benefit included in payment for another service already adjudicated,1783.22,2026-08-23,appeal filed,2027-02-19
+DEN-0037,CLM-100192,CO-29,The time limit for filing has expired,329.46,2026-05-14,overturned,2026-11-10
+DEN-0038,CLM-100203,CO-197,Precertification/authorization/notification absent,1016.81,2026-01-07,appeal filed,2026-07-06
+DEN-0039,CLM-100207,CO-197,Precertification/authorization/notification absent,2748.11,2026-04-27,appeal filed,2026-10-24
+DEN-0040,CLM-100211,CO-197,Precertification/authorization/notification absent,978.59,2026-10-13,not appealed,2027-04-11
+DEN-0041,CLM-100217,CO-29,The time limit for filing has expired,1886.71,2026-11-01,not appealed,2027-04-30
+DEN-0042,CLM-100221,CO-197,Precertification/authorization/notification absent,1201.62,2026-10-08,upheld,2027-04-06
+DEN-0043,CLM-100223,CO-197,Precertification/authorization/notification absent,9233.5,2026-05-28,appeal filed,2026-11-24
+DEN-0044,CLM-100229,CO-16,Claim lacks information or has submission/billing errors,2051.25,2026-07-09,appeal filed,2027-01-05
+DEN-0045,CLM-100234,CO-29,The time limit for filing has expired,83.73,2026-11-01,overturned,2027-04-30
+DEN-0046,CLM-100236,CO-197,Precertification/authorization/notification absent,952.48,2026-11-01,appeal filed,2027-04-30
+DEN-0047,CLM-100239,CO-50,Not deemed a medical necessity by the payer,1110.35,2025-12-30,upheld,2026-06-28
+DEN-0048,CLM-100244,CO-50,Not deemed a medical necessity by the payer,9590.7,2026-01-05,not appealed,2026-07-04
+DEN-0049,CLM-100251,CO-242,Services not provided by network/primary care providers,840.2,2026-06-27,not appealed,2026-12-24
+DEN-0050,CLM-100254,CO-16,Claim lacks information or has submission/billing errors,2440.64,2026-11-01,overturned,2027-04-30
+DEN-0051,CLM-100261,CO-197,Precertification/authorization/notification absent,1020.03,2026-06-08,overturned,2026-12-05
+DEN-0052,CLM-100269,CO-197,Precertification/authorization/notification absent,39098.13,2026-04-05,not appealed,2026-10-02
+DEN-0053,CLM-100270,CO-197,Precertification/authorization/notification absent,35867.94,2026-03-10,appeal filed,2026-09-06
+DEN-0054,CLM-100272,CO-50,Not deemed a medical necessity by the payer,1216.53,2026-02-27,appeal filed,2026-08-26
+DEN-0055,CLM-100273,CO-50,Not deemed a medical necessity by the payer,68.39,2026-01-29,appeal filed,2026-07-28
+DEN-0056,CLM-100276,CO-197,Precertification/authorization/notification absent,2633.63,2026-06-19,appeal filed,2026-12-16
+DEN-0057,CLM-100280,CO-197,Precertification/authorization/notification absent,1806.46,2026-08-14,overturned,2027-02-10
+DEN-0058,CLM-100283,CO-197,Precertification/authorization/notification absent,935.7,2026-10-08,overturned,2027-04-06
+DEN-0059,CLM-100288,CO-97,Benefit included in payment for another service already adjudicated,253.76,2026-04-10,not appealed,2026-10-07
+DEN-0060,CLM-100289,CO-242,Services not provided by network/primary care providers,64.32,2025-12-31,upheld,2026-06-29
+DEN-0061,CLM-100297,CO-242,Services not provided by network/primary care providers,327.24,2026-02-12,not appealed,2026-08-11
+DEN-0062,CLM-100301,CO-16,Claim lacks information or has submission/billing errors,1608.01,2026-04-20,not appealed,2026-10-17
+DEN-0063,CLM-100307,CO-197,Precertification/authorization/notification absent,2508.01,2026-05-25,overturned,2026-11-21
+DEN-0064,CLM-100313,CO-50,Not deemed a medical necessity by the payer,1296.69,2026-10-18,overturned,2027-04-16
+DEN-0065,CLM-100323,CO-242,Services not provided by network/primary care providers,1313.47,2026-03-09,not appealed,2026-09-05
+DEN-0066,CLM-100331,CO-197,Precertification/authorization/notification absent,1061.2,2026-11-01,appeal filed,2027-04-30
+DEN-0067,CLM-100334,CO-197,Precertification/authorization/notification absent,1826.21,2026-05-18,appeal filed,2026-11-14
+DEN-0068,CLM-100341,CO-197,Precertification/authorization/notification absent,3429.76,2026-02-27,not appealed,2026-08-26
+DEN-0069,CLM-100344,CO-197,Precertification/authorization/notification absent,3458.47,2026-01-16,upheld,2026-07-15
+DEN-0070,CLM-100346,CO-16,Claim lacks information or has submission/billing errors,45.14,2026-02-18,not appealed,2026-08-17
+DEN-0071,CLM-100348,CO-197,Precertification/authorization/notification absent,2026.84,2026-02-25,not appealed,2026-08-24
+DEN-0072,CLM-100351,CO-50,Not deemed a medical necessity by the payer,1301.57,2026-11-01,not appealed,2027-04-30
+DEN-0073,CLM-100352,CO-97,Benefit included in payment for another service already adjudicated,256.07,2025-12-28,not appealed,2026-06-26
+DEN-0074,CLM-100356,CO-197,Precertification/authorization/notification absent,3032.51,2026-08-08,not appealed,2027-02-04
+DEN-0075,CLM-100368,CO-50,Not deemed a medical necessity by the payer,68.21,2026-02-14,upheld,2026-08-13
+DEN-0076,CLM-100369,CO-29,The time limit for filing has expired,255.65,2026-10-29,not appealed,2027-04-27
+DEN-0077,CLM-100372,CO-16,Claim lacks information or has submission/billing errors,39.03,2026-11-01,not appealed,2027-04-30
+DEN-0078,CLM-100373,CO-18,Exact duplicate claim/service,188.25,2026-02-28,not appealed,2026-08-27
+DEN-0079,CLM-100374,CO-197,Precertification/authorization/notification absent,923.18,2026-09-17,not appealed,2027-03-16
+DEN-0080,CLM-100377,CO-197,Precertification/authorization/notification absent,2790.5,2026-03-16,appeal filed,2026-09-12
+DEN-0081,CLM-100383,CO-18,Exact duplicate claim/service,73.8,2026-01-06,overturned,2026-07-05
+DEN-0082,CLM-100386,CO-197,Precertification/authorization/notification absent,2865.97,2026-11-01,not appealed,2027-04-30
+DEN-0083,CLM-100387,CO-197,Precertification/authorization/notification absent,37864.99,2026-05-13,not appealed,2026-11-09
+DEN-0084,CLM-100395,CO-242,Services not provided by network/primary care providers,3014.73,2026-01-18,not appealed,2026-07-17
+DEN-0085,CLM-100396,CO-29,The time limit for filing has expired,171.68,2026-07-17,not appealed,2027-01-13
+DEN-0086,CLM-100400,CO-197,Precertification/authorization/notification absent,1691.83,2026-04-18,not appealed,2026-10-15
+DEN-0087,CLM-100401,CO-197,Precertification/authorization/notification absent,34937.33,2026-07-20,upheld,2027-01-16
+DEN-0088,CLM-100402,CO-197,Precertification/authorization/notification absent,29204.37,2026-06-04,overturned,2026-12-01
+DEN-0089,CLM-100413,CO-242,Services not provided by network/primary care providers,1473.9,2026-06-22,overturned,2026-12-19
+DEN-0090,CLM-100417,CO-197,Precertification/authorization/notification absent,1006.65,2026-08-10,not appealed,2027-02-06
+DEN-0091,CLM-100421,CO-16,Claim lacks information or has submission/billing errors,1411.01,2026-10-15,upheld,2027-04-13
+DEN-0092,CLM-100425,CO-50,Not deemed a medical necessity by the payer,90.02,2026-03-11,not appealed,2026-09-07
+DEN-0093,CLM-100430,CO-197,Precertification/authorization/notification absent,8205.32,2026-09-02,not appealed,2027-03-01
+DEN-0094,CLM-100446,CO-97,Benefit included in payment for another service already adjudicated,252.81,2026-11-01,not appealed,2027-04-30
+DEN-0095,CLM-100451,CO-197,Precertification/authorization/notification absent,1173.62,2026-10-18,not appealed,2027-04-16
+DEN-0096,CLM-100457,CO-50,Not deemed a medical necessity by the payer,96.98,2026-06-12,not appealed,2026-12-09
+DEN-0097,CLM-100463,CO-197,Precertification/authorization/notification absent,2935.8,2026-05-02,overturned,2026-10-29
+DEN-0098,CLM-100464,CO-97,Benefit included in payment for another service already adjudicated,2954.54,2026-05-18,appeal filed,2026-11-14
+DEN-0099,CLM-100466,CO-242,Services not provided by network/primary care providers,229.03,2025-12-27,not appealed,2026-06-25
+DEN-0100,CLM-100468,CO-197,Precertification/authorization/notification absent,1027.61,2026-09-09,not appealed,2027-03-08
+DEN-0101,CLM-100472,CO-50,Not deemed a medical necessity by the payer,1483.24,2026-06-06,appeal filed,2026-12-03
+DEN-0102,CLM-100480,CO-16,Claim lacks information or has submission/billing errors,1143.72,2026-11-01,not appealed,2027-04-30
+DEN-0103,CLM-100487,CO-50,Not deemed a medical necessity by the payer,1459.09,2026-07-25,not appealed,2027-01-21
+DEN-0104,CLM-100488,CO-50,Not deemed a medical necessity by the payer,2110.13,2026-07-16,not appealed,2027-01-12
+DEN-0105,CLM-100498,CO-197,Precertification/authorization/notification absent,1677.34,2026-09-21,not appealed,2027-03-20
+DEN-0106,CLM-100506,CO-97,Benefit included in payment for another service already adjudicated,974.7,2026-08-23,appeal filed,2027-02-19
+DEN-0107,CLM-100508,CO-197,Precertification/authorization/notification absent,1296.61,2026-10-17,upheld,2027-04-15
+DEN-0108,CLM-100514,CO-16,Claim lacks information or has submission/billing errors,287.27,2026-01-25,not appealed,2026-07-24
+DEN-0109,CLM-100516,CO-197,Precertification/authorization/notification absent,1289.04,2026-11-01,not appealed,2027-04-30
+DEN-0110,CLM-100520,CO-197,Precertification/authorization/notification absent,963.87,2026-09-19,not appealed,2027-03-18
+DEN-0111,CLM-100522,CO-197,Precertification/authorization/notification absent,2262.63,2026-11-01,not appealed,2027-04-30
+DEN-0112,CLM-100524,CO-197,Precertification/authorization/notification absent,1241.91,2026-10-09,not appealed,2027-04-07
+DEN-0113,CLM-100527,CO-197,Precertification/authorization/notification absent,8711.22,2026-11-01,upheld,2027-04-30
+DEN-0114,CLM-100533,CO-50,Not deemed a medical necessity by the payer,113.84,2026-09-19,not appealed,2027-03-18
+DEN-0115,CLM-100534,CO-197,Precertification/authorization/notification absent,8915.56,2026-06-16,not appealed,2026-12-13
+DEN-0116,CLM-100535,CO-197,Precertification/authorization/notification absent,9029.96,2026-02-10,not appealed,2026-08-09
+DEN-0117,CLM-100538,CO-50,Not deemed a medical necessity by the payer,69.48,2026-06-23,appeal filed,2026-12-20
+DEN-0118,CLM-100546,CO-16,Claim lacks information or has submission/billing errors,165.39,2026-05-28,overturned,2026-11-24
+DEN-0119,CLM-100548,CO-18,Exact duplicate claim/service,118.1,2026-10-02,not appealed,2027-03-31
+DEN-0120,CLM-100554,CO-29,The time limit for filing has expired,115.77,2026-11-01,not appealed,2027-04-30
+DEN-0121,CLM-100563,CO-18,Exact duplicate claim/service,3581.36,2025-12-22,appeal filed,2026-06-20
+DEN-0122,CLM-100564,CO-197,Precertification/authorization/notification absent,990.5,2026-02-09,not appealed,2026-08-08
+DEN-0123,CLM-100567,CO-29,The time limit for filing has expired,73.81,2026-09-13,appeal filed,2027-03-12
+DEN-0124,CLM-100568,CO-242,Services not provided by network/primary care providers,200.17,2026-01-25,not appealed,2026-07-24
+DEN-0125,CLM-100570,CO-197,Precertification/authorization/notification absent,2102.84,2026-01-24,not appealed,2026-07-23
+DEN-0126,CLM-100577,CO-18,Exact duplicate claim/service,1985.89,2026-11-01,not appealed,2027-04-30
+DEN-0127,CLM-100592,CO-50,Not deemed a medical necessity by the payer,93.86,2026-10-20,not appealed,2027-04-18
+DEN-0128,CLM-100603,CO-50,Not deemed a medical necessity by the payer,173.05,2026-07-03,appeal filed,2026-12-30
+DEN-0129,CLM-100607,CO-97,Benefit included in payment for another service already adjudicated,70.37,2026-05-17,not appealed,2026-11-13
+DEN-0130,CLM-100626,CO-16,Claim lacks information or has submission/billing errors,2026.74,2026-05-10,overturned,2026-11-06
+DEN-0131,CLM-100632,CO-50,Not deemed a medical necessity by the payer,2925.26,2026-06-01,appeal filed,2026-11-28
+DEN-0132,CLM-100642,CO-197,Precertification/authorization/notification absent,2089.41,2026-08-06,not appealed,2027-02-02
+DEN-0133,CLM-100649,CO-50,Not deemed a medical necessity by the payer,65.57,2026-04-14,appeal filed,2026-10-11
+DEN-0134,CLM-100650,CO-197,Precertification/authorization/notification absent,2069.33,2026-09-01,appeal filed,2027-02-28
+DEN-0135,CLM-100652,CO-50,Not deemed a medical necessity by the payer,182.9,2026-01-21,not appealed,2026-07-20
+DEN-0136,CLM-100654,CO-18,Exact duplicate claim/service,3416.81,2026-09-25,overturned,2027-03-24
+DEN-0137,CLM-100656,CO-197,Precertification/authorization/notification absent,2734.59,2026-09-15,overturned,2027-03-14
+DEN-0138,CLM-100664,CO-16,Claim lacks information or has submission/billing errors,63.5,2026-06-01,appeal filed,2026-11-28
+DEN-0139,CLM-100667,CO-197,Precertification/authorization/notification absent,2278.21,2025-12-06,not appealed,2026-06-04
+DEN-0140,CLM-100668,CO-197,Precertification/authorization/notification absent,1180.66,2026-01-31,not appealed,2026-07-30
+DEN-0141,CLM-100673,CO-50,Not deemed a medical necessity by the payer,90.88,2026-10-05,not appealed,2027-04-03
+DEN-0142,CLM-100674,CO-16,Claim lacks information or has submission/billing errors,3035.09,2026-05-02,appeal filed,2026-10-29
+DEN-0143,CLM-100675,CO-197,Precertification/authorization/notification absent,7905.42,2026-05-25,not appealed,2026-11-21
+DEN-0144,CLM-100683,CO-197,Precertification/authorization/notification absent,1941.32,2026-06-19,not appealed,2026-12-16
+DEN-0145,CLM-100691,CO-50,Not deemed a medical necessity by the payer,1175.25,2026-06-13,not appealed,2026-12-10
+DEN-0146,CLM-100692,CO-29,The time limit for filing has expired,73.83,2026-05-30,overturned,2026-11-26
+DEN-0147,CLM-100701,CO-197,Precertification/authorization/notification absent,2124.17,2026-03-15,upheld,2026-09-11
+DEN-0148,CLM-100702,CO-197,Precertification/authorization/notification absent,3134.22,2026-06-05,not appealed,2026-12-02
+DEN-0149,CLM-100719,CO-197,Precertification/authorization/notification absent,1104.94,2026-10-05,appeal filed,2027-04-03
+DEN-0150,CLM-100720,CO-197,Precertification/authorization/notification absent,1646.09,2026-11-01,appeal filed,2027-04-30
+DEN-0151,CLM-100731,CO-197,Precertification/authorization/notification absent,1619.88,2026-02-08,appeal filed,2026-08-07
+DEN-0152,CLM-100733,CO-97,Benefit included in payment for another service already adjudicated,84.38,2026-06-29,upheld,2026-12-26
+DEN-0153,CLM-100735,CO-197,Precertification/authorization/notification absent,1925.38,2026-10-25,not appealed,2027-04-23
+DEN-0154,CLM-100738,CO-16,Claim lacks information or has submission/billing errors,1957.74,2026-08-03,overturned,2027-01-30
+DEN-0155,CLM-100742,CO-16,Claim lacks information or has submission/billing errors,2748.3,2026-08-13,not appealed,2027-02-09
+DEN-0156,CLM-100743,CO-97,Benefit included in payment for another service already adjudicated,254.42,2026-04-10,overturned,2026-10-07
+DEN-0157,CLM-100745,CO-197,Precertification/authorization/notification absent,31066.76,2026-02-06,not appealed,2026-08-05
+DEN-0158,CLM-100753,CO-18,Exact duplicate claim/service,3392.79,2026-04-26,not appealed,2026-10-23
+DEN-0159,CLM-100760,CO-18,Exact duplicate claim/service,2362.73,2026-05-05,not appealed,2026-11-01
+DEN-0160,CLM-100768,CO-50,Not deemed a medical necessity by the payer,1508.29,2026-04-13,not appealed,2026-10-10
+DEN-0161,CLM-100771,CO-97,Benefit included in payment for another service already adjudicated,260.11,2026-07-08,not appealed,2027-01-04
+DEN-0162,CLM-100773,CO-16,Claim lacks information or has submission/billing errors,149.67,2026-03-09,not appealed,2026-09-05
+DEN-0163,CLM-100774,CO-197,Precertification/authorization/notification absent,1515.43,2026-05-29,overturned,2026-11-25
+DEN-0164,CLM-100775,CO-16,Claim lacks information or has submission/billing errors,939.01,2026-11-01,overturned,2027-04-30
+DEN-0165,CLM-100776,CO-50,Not deemed a medical necessity by the payer,960.23,2026-06-01,not appealed,2026-11-28
+DEN-0166,CLM-100779,CO-242,Services not provided by network/primary care providers,1579.9,2026-03-17,not appealed,2026-09-13
+DEN-0167,CLM-100781,CO-197,Precertification/authorization/notification absent,2051.7,2026-03-14,not appealed,2026-09-10
+DEN-0168,CLM-100785,CO-197,Precertification/authorization/notification absent,2034.53,2026-11-01,not appealed,2027-04-30
+DEN-0169,CLM-100787,CO-197,Precertification/authorization/notification absent,1073.1,2026-10-06,not appealed,2027-04-04
+DEN-0170,CLM-100794,CO-197,Precertification/authorization/notification absent,1469.82,2026-08-10,upheld,2027-02-06
+DEN-0171,CLM-100800,CO-197,Precertification/authorization/notification absent,1436.0,2026-03-29,upheld,2026-09-25
+DEN-0172,CLM-100801,CO-197,Precertification/authorization/notification absent,1089.54,2026-01-04,upheld,2026-07-03
+DEN-0173,CLM-100802,CO-29,The time limit for filing has expired,251.26,2026-06-29,not appealed,2026-12-26
+DEN-0174,CLM-100804,CO-50,Not deemed a medical necessity by the payer,77.18,2026-06-28,overturned,2026-12-25
+DEN-0175,CLM-100806,CO-97,Benefit included in payment for another service already adjudicated,68.02,2026-04-24,appeal filed,2026-10-21
+DEN-0176,CLM-100813,CO-29,The time limit for filing has expired,259.03,2026-09-16,overturned,2027-03-15
+DEN-0177,CLM-100815,CO-29,The time limit for filing has expired,98.87,2026-08-27,not appealed,2027-02-23
+DEN-0178,CLM-100828,CO-29,The time limit for filing has expired,999.03,2026-11-01,not appealed,2027-04-30
+DEN-0179,CLM-100830,CO-50,Not deemed a medical necessity by the payer,1053.73,2026-05-07,upheld,2026-11-03
+DEN-0180,CLM-100846,CO-50,Not deemed a medical necessity by the payer,2335.1,2026-03-22,not appealed,2026-09-18
+DEN-0181,CLM-100848,CO-16,Claim lacks information or has submission/billing errors,30129.59,2026-09-14,not appealed,2027-03-13
+DEN-0182,CLM-100852,CO-16,Claim lacks information or has submission/billing errors,1075.14,2026-09-08,appeal filed,2027-03-07
+DEN-0183,CLM-100853,CO-242,Services not provided by network/primary care providers,8896.1,2026-04-15,not appealed,2026-10-12
+DEN-0184,CLM-100861,CO-197,Precertification/authorization/notification absent,1131.78,2026-01-30,not appealed,2026-07-29
+DEN-0185,CLM-100866,CO-50,Not deemed a medical necessity by the payer,2986.31,2026-07-21,overturned,2027-01-17
+DEN-0186,CLM-100867,CO-197,Precertification/authorization/notification absent,1665.38,2026-06-12,not appealed,2026-12-09
+DEN-0187,CLM-100870,CO-197,Precertification/authorization/notification absent,34479.41,2026-01-27,overturned,2026-07-26
+DEN-0188,CLM-100876,CO-197,Precertification/authorization/notification absent,1728.42,2026-06-19,overturned,2026-12-16
+DEN-0189,CLM-100878,CO-50,Not deemed a medical necessity by the payer,118.5,2025-12-29,appeal filed,2026-06-27
+DEN-0190,CLM-100890,CO-197,Precertification/authorization/notification absent,1198.79,2026-07-10,appeal filed,2027-01-06
+DEN-0191,CLM-100895,CO-18,Exact duplicate claim/service,7207.45,2026-09-19,upheld,2027-03-18
+DEN-0192,CLM-100905,CO-197,Precertification/authorization/notification absent,2840.8,2026-04-16,not appealed,2026-10-13
+DEN-0193,CLM-100915,CO-16,Claim lacks information or has submission/billing errors,61.09,2026-06-23,not appealed,2026-12-20
+DEN-0194,CLM-100919,CO-50,Not deemed a medical necessity by the payer,206.51,2026-05-19,not appealed,2026-11-15
+DEN-0195,CLM-100923,CO-50,Not deemed a medical necessity by the payer,129.26,2026-01-30,not appealed,2026-07-29
+DEN-0196,CLM-100924,CO-50,Not deemed a medical necessity by the payer,146.71,2026-09-17,upheld,2027-03-16
+DEN-0197,CLM-100936,CO-197,Precertification/authorization/notification absent,2852.93,2025-12-21,not appealed,2026-06-19
+DEN-0198,CLM-100942,CO-197,Precertification/authorization/notification absent,1347.08,2026-08-22,not appealed,2027-02-18
+DEN-0199,CLM-100943,CO-97,Benefit included in payment for another service already adjudicated,68.72,2026-08-27,not appealed,2027-02-23
+DEN-0200,CLM-100944,CO-16,Claim lacks information or has submission/billing errors,98.98,2026-07-18,not appealed,2027-01-14
+DEN-0201,CLM-100948,CO-197,Precertification/authorization/notification absent,32120.99,2026-08-22,not appealed,2027-02-18
+DEN-0202,CLM-100956,CO-197,Precertification/authorization/notification absent,2311.09,2026-06-05,not appealed,2026-12-02
+DEN-0203,CLM-100957,CO-16,Claim lacks information or has submission/billing errors,2940.84,2026-01-17,not appealed,2026-07-16
+DEN-0204,CLM-100959,CO-29,The time limit for filing has expired,36796.52,2026-08-06,upheld,2027-02-02
+DEN-0205,CLM-100961,CO-197,Precertification/authorization/notification absent,9603.5,2026-05-10,not appealed,2026-11-06
+DEN-0206,CLM-100962,CO-97,Benefit included in payment for another service already adjudicated,183.52,2026-11-01,appeal filed,2027-04-30
+DEN-0207,CLM-100971,CO-29,The time limit for filing has expired,62.52,2026-10-12,overturned,2027-04-10
+DEN-0208,CLM-100975,CO-197,Precertification/authorization/notification absent,1044.85,2026-04-03,appeal filed,2026-09-30
+DEN-0209,CLM-100978,CO-197,Precertification/authorization/notification absent,7130.18,2026-11-01,overturned,2027-04-30
+DEN-0210,CLM-100982,CO-97,Benefit included in payment for another service already adjudicated,92.79,2026-10-27,appeal filed,2027-04-25
+DEN-0211,CLM-100983,CO-242,Services not provided by network/primary care providers,2732.83,2026-05-18,appeal filed,2026-11-14
+DEN-0212,CLM-100988,CO-29,The time limit for filing has expired,85.78,2026-10-31,appeal filed,2027-04-29
+DEN-0213,CLM-100989,CO-197,Precertification/authorization/notification absent,2723.5,2026-02-22,overturned,2026-08-21

@@ -1,0 +1,18 @@
+{
+  "member_help": [
+    {"q": "Does an MRI of the lumbar spine need prior authorization, and what are the criteria?", "expect": ["6 weeks"]},
+    {"q": "What is the timely filing limit for in-network providers?", "expect": ["180"]},
+    {"q": "What is the timely filing limit for out-of-network providers?", "expect": ["90"]},
+    {"q": "How long do I have to file a first-level appeal after a denial?", "expect": ["180"]},
+    {"q": "What should be included when appealing a CO-50 denial?", "expect": ["medical necessity"]},
+    {"q": "How long is an approved prior authorization number valid?", "expect": ["60"]}
+  ],
+  "claims_analyst": [
+    {"q": "How many claims were denied in total?", "expect": ["213"]},
+    {"q": "Which denial reason code accounts for the largest total denied amount?", "expect": ["CO-197"]},
+    {"q": "Why was claim CLM-100430 denied, and what is its appeal deadline?", "expect": ["CO-197", "2027-03-01"]},
+    {"q": "How many claims were denied for timely filing (CO-29)?", "expect": ["17"]},
+    {"q": "What does the plan require to appeal a CO-197 denial? Use the appeals policy.", "expect": ["authorization"]},
+    {"q": "List the 3 specialties with the most denied claims.", "expect": []}
+  ]
+}

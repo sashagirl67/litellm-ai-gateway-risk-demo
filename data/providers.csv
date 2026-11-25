@@ -1,0 +1,51 @@
+provider_id,npi,provider_name,specialty,practice_name,city,network_status
+PRV-001,9913600310,Dr. Elijah Esposito,Family Medicine,Esposito Clinic,Clearwater Junction,in-network
+PRV-002,9935319707,Dr. Mateo Tran,Internal Medicine,Tran Associates,Pine Hollow,in-network
+PRV-003,9976422705,Dr. Priya Pruitt,Cardiology,Pruitt Medical Group,Clearwater Junction,in-network
+PRV-004,9919531069,Dr. Lucia Achebe,Orthopedics,Achebe Medical Group,Pine Hollow,in-network
+PRV-005,9961920550,Dr. Elijah Lindqvist,Radiology,Lindqvist Care Center,Eastbrook,in-network
+PRV-006,9933188838,Dr. Hana Quill,Neurology,Quill Associates,Meridian Falls,out-of-network
+PRV-007,9911851322,Dr. Rowan Brennan,Physical Therapy,Brennan Health Partners,Meridian Falls,in-network
+PRV-008,9977996124,Dr. Skyler Sorensen,Endocrinology,Sorensen Care Center,Eastbrook,in-network
+PRV-009,9921063273,Dr. Nora Sorensen,Pulmonology,Sorensen Care Center,Silver Creek,in-network
+PRV-010,9921220209,Dr. Skyler Delacroix,General Surgery,Delacroix Medical Group,Silver Creek,in-network
+PRV-011,9981993070,Dr. Elena Lindqvist,Family Medicine,Lindqvist Associates,Silver Creek,in-network
+PRV-012,9996322745,Dr. Riley Montague,Internal Medicine,Montague Clinic,Eastbrook,in-network
+PRV-013,9917772004,Dr. Jamie Pruitt,Cardiology,Pruitt Medical Group,Eastbrook,out-of-network
+PRV-014,9991716102,Dr. Jordan Achebe,Orthopedics,Achebe Clinic,Clearwater Junction,out-of-network
+PRV-015,9928416255,Dr. Leah Esposito,Radiology,Esposito Medical Group,Clearwater Junction,in-network
+PRV-016,9980196591,Dr. Lucia Abernathy,Neurology,Abernathy Clinic,Clearwater Junction,in-network
+PRV-017,9946072958,Dr. Mateo Blackwood,Physical Therapy,Blackwood Medical Group,Meridian Falls,in-network
+PRV-018,9946504617,Dr. Lucia Kowalski,Endocrinology,Kowalski Medical Group,Pine Hollow,in-network
+PRV-019,9994226031,Dr. Riley Rasmussen,Pulmonology,Rasmussen Associates,Eastbrook,in-network
+PRV-020,9977056519,Dr. Elijah Okafor,General Surgery,Okafor Care Center,Clearwater Junction,in-network
+PRV-021,9923811663,Dr. Aisha Delacroix,Family Medicine,Delacroix Care Center,Meridian Falls,in-network
+PRV-022,9910344739,Dr. Jordan Tran,Internal Medicine,Tran Medical Group,Clearwater Junction,out-of-network
+PRV-023,9961402634,Dr. Victor Abernathy,Cardiology,Abernathy Health Partners,Clearwater Junction,in-network
+PRV-024,9984204255,Dr. Caleb Okafor,Orthopedics,Okafor Associates,Clearwater Junction,in-network
+PRV-025,9952940967,Dr. Rowan Kowalski,Radiology,Kowalski Medical Group,Silver Creek,in-network
+PRV-026,9917069536,Dr. Quinn Tran,Neurology,Tran Health Partners,Silver Creek,in-network
+PRV-027,9919251149,Dr. Aisha Sorensen,Physical Therapy,Sorensen Associates,Pine Hollow,in-network
+PRV-028,9953929586,Dr. Riley Vance,Endocrinology,Vance Care Center,Eastbrook,out-of-network
+PRV-029,9949137230,Dr. Mei Nakamura,Pulmonology,Nakamura Clinic,Silver Creek,in-network
+PRV-030,9989415412,Dr. Omar Abernathy,General Surgery,Abernathy Health Partners,Silver Creek,in-network
+PRV-031,9930208677,Dr. Avery Pruitt,Family Medicine,Pruitt Associates,Meridian Falls,in-network
+PRV-032,9995354668,Dr. Zoe Abernathy,Internal Medicine,Abernathy Medical Group,Pine Hollow,out-of-network
+PRV-033,9960502752,Dr. Elijah Quill,Cardiology,Quill Clinic,Meridian Falls,in-network
+PRV-034,9966346728,Dr. Omar Pruitt,Orthopedics,Pruitt Medical Group,Clearwater Junction,in-network
+PRV-035,9915892193,Dr. Victor Brennan,Radiology,Brennan Health Partners,Silver Creek,in-network
+PRV-036,9971533194,Dr. Mateo Abernathy,Neurology,Abernathy Medical Group,Silver Creek,out-of-network
+PRV-037,9995525640,Dr. Zoe Lindqvist,Physical Therapy,Lindqvist Associates,Meridian Falls,in-network
+PRV-038,9968382413,Dr. Isaac Okafor,Endocrinology,Okafor Health Partners,Clearwater Junction,in-network
+PRV-039,9962741214,Dr. Leah Moreau,Pulmonology,Moreau Clinic,Pine Hollow,in-network
+PRV-040,9920024377,Dr. Taylor Pruitt,General Surgery,Pruitt Health Partners,Silver Creek,out-of-network
+PRV-041,9932062036,Dr. Grace Castillo,Family Medicine,Castillo Associates,Pine Hollow,in-network
+PRV-042,9958088526,Dr. Hana Galloway,Internal Medicine,Galloway Health Partners,Eastbrook,in-network
+PRV-043,9926094525,Dr. Riley Delacroix,Cardiology,Delacroix Health Partners,Pine Hollow,in-network
+PRV-044,9990973889,Dr. Jordan Esposito,Orthopedics,Esposito Health Partners,Pine Hollow,out-of-network
+PRV-045,9943315361,Dr. Marcus Esposito,Radiology,Esposito Associates,Silver Creek,out-of-network
+PRV-046,9944918995,Dr. Zoe Vance,Neurology,Vance Health Partners,Meridian Falls,in-network
+PRV-047,9984618850,Dr. Mateo Ibarra,Physical Therapy,Ibarra Care Center,Clearwater Junction,out-of-network
+PRV-048,9928762704,Dr. Morgan Castillo,Endocrinology,Castillo Medical Group,Meridian Falls,in-network
+PRV-049,9927544302,Dr. Taylor Pruitt,Pulmonology,Pruitt Associates,Pine Hollow,in-network
+PRV-050,9921279580,Dr. Mei Montague,General Surgery,Montague Care Center,Pine Hollow,in-network

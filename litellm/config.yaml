@@ -1,0 +1,40 @@
+# LiteLLM gateway config.
+#
+# Agents never name a model. They ask for an alias and the gateway decides:
+#   fast           -> FAST_MODEL      (default: Amazon Nova Micro)
+#   smart          -> SMART_MODEL     (default: Amazon Nova 2 Lite), falls back to smart-fallback
+#   smart-fallback -> FALLBACK_MODEL  (default: Amazon Nova Pro)
+#   fallback-drill -> a model that does not exist, so it always falls back (used by test TB-3)
+#
+# Choose your own models in .env (any LiteLLM model string, e.g. bedrock/<model-id> or
+# openai/<model>). Bedrock credentials come from the container environment (IAM user
+# litellm-gateway); other providers use the API keys you put in .env.
+
+model_list:
+  - model_name: fast
+    litellm_params:
+      model: os.environ/FAST_MODEL
+  - model_name: smart
+    litellm_params:
+      model: os.environ/SMART_MODEL
+  - model_name: smart-fallback
+    litellm_params:
+      model: os.environ/FALLBACK_MODEL
+  - model_name: fallback-drill
+    litellm_params:
+      model: bedrock/us.amazon.nova-drill-does-not-exist-v1:0
+
+router_settings:
+  fallbacks: [{"smart": ["smart-fallback"]}, {"fallback-drill": ["smart-fallback"]}]
+  num_retries: 1
+
+litellm_settings:
+  drop_params: true
+
+general_settings:
+  # WEAKNESS ID-4: the master key is hardcoded and committed to the repo. It can list,
+  # create and delete every virtual key, read all spend logs and call every model with no
+  # budget. It only works against a gateway running on your own machine (127.0.0.1).
+  master_key: sk-mvhp-demo-master-0001
+  # WEAKNESS ID-4: database password hardcoded in the connection string.
+  database_url: postgresql://litellm:litellm-demo-pw@db:5432/litellm
